@@ -188,7 +188,7 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
         [self.dataSource collectionView:self.collectionView itemAtIndexPath:previousIndexPath willMoveToIndexPath:newIndexPath];
     }
 
-    __weak typeof(self) weakSelf = self;
+    __unsafe_unretained typeof(self) weakSelf = self;
     [self.collectionView performBatchUpdates:^{
         __strong typeof(self) strongSelf = weakSelf;
         if (strongSelf) {
@@ -331,7 +331,7 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
             
             self.currentViewCenter = self.currentView.center;
             
-            __weak typeof(self) weakSelf = self;
+            __unsafe_unretained typeof(self) weakSelf = self;
             [UIView
              animateWithDuration:0.3
              delay:0.0
@@ -373,7 +373,7 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
                 
                 self.longPressGestureRecognizer.enabled = NO;
                 
-                __weak typeof(self) weakSelf = self;
+                __unsafe_unretained typeof(self) weakSelf = self;
                 [UIView
                  animateWithDuration:0.3
                  delay:0.0
